@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="www.silver.dao.IF_SuitDao">
+	<insert id="insuit"	 parameterType="www.silver.vo.SuitVO">
+		insert into suitlist values ('Suit' || suit_seq.NEXTVAL,#{suitname},#{suitcontent},#{suitleft},sysdate)
+	</insert>
+	<select id="searchall" resultType="www.silver.vo.SuitVO">
+		select * from suitlist
+	</select>
+
+</mapper>
+

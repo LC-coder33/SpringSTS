@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+.roboto-regular {
+font-family: "Roboto", sans-serif;
+font-weight: 400;
+font-style: normal;
+}
+
+body {
+    font-family: 
+    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+header {
+    float: left;
+}
+aside {
+    float: right;
+    margin-right: 10px;
+    margin-top: 100px;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0px;
+    width: 100%;
+    overflow: hidden;
+    text-align:center;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+ul li {
+    margin-left: 30px;
+}
+ul li span {
+    display: block;
+    text-align: center;
+    padding: 14px 70px;
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: 1.2em;
+}
+ul li span:hover {
+    background-color: gray;
+}
+h1 {
+text-transform: uppercase;
+line-height: 1.2em;
+padding-top: 30px;
+padding-left: 30px;
+font-size: 70px;
+}
+div p {
+    font-size: 20px;
+    padding-left: 30px;
+    padding-top: 30px;
+    line-height: 2em;
+}
+.searchbtn {
+    margin-left: 30px;
+    padding: 20px 50px 20px 50px;
+    font-size: 30px;
+}
+table tr td input {
+    background-color: white;
+    border: 1px solid;
+}
+#clist {
+    float: left;
+}
+#clist h4{
+    padding-top: 300px;
+    text-align: center;
+    font-size: 1.5em;
+    color: white;
+}
+#google {
+    display: flex; 
+    float: left;
+    align-items: center; 
+    justify-content:space-between;
+    width: 95%;
+    height: 150px;
+    border: 1px solid lightgray;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#newsletter {
+    margin-left: 30px;
+    font-size: 40px;
+}
+#email {
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+}
+#subscribe {
+    margin-right: 30px;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+    width: 180px;
+    height: 50px;
+    border: none;
+}
+
+#bfooter {
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+    height: 300px;
+    background-color:rgba(0, 0, 0, 0.767);
+}
+#bfooter div {
+    float: left;
+    text-align: center;
+}
+#bfooter table {
+    width: 100%;
+    table-layout: fixed;
+    color: white;
+}
+#bfooter table tr {
+    text-align: center;
+}
+#bfooter table tr td {
+    padding-top: 30px;
+    word-wrap: break-word;
+}
+#bfooter table tr td hr {
+    border:none;
+    height: 1px;
+    background-color: black;
+    width: 80%;
+    margin: 0 auto;
+}
+footer {
+    float: left;
+    width: 100%;
+    height:50px;
+    background-color: darkgray;
+    text-align: center;
+}
