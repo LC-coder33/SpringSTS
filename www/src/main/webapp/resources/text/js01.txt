@@ -1,0 +1,4 @@
+1. 선언문 var let const
+var, let 구분: scope 정리할 것
+2. 연산자 ==: 값만 같으면 true
+          ===: 자료형까지 같아야 true

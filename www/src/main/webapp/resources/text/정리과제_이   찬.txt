@@ -1,0 +1,95 @@
+정리질문
+1. 클라이언트가 request를 할 때 공부해야 하는 것 3가지
+url: http://~
+parameter: 매개 변수와 비슷한 역할을 한다. 서버에게 전송 할 데이터.
+method: 파라미터를 어떤 방법으로 보내줄 것인지에 대한 정의다. GET방식: 조회(select)와 같은 역할을 수행한다. 
+							url에 직접 명시되어 데이터 정보가 노출 될 수 있다.
+						        POST방식: 생성(create, add)와 같은 역할을 수행한다.
+							get방식에 비해 은닉화가 수월하다.
+RestAPI는 위의 GET과 POST방식을 포함하여 update역할을 하는 put과 delete 등등을 추가하여 CRUD의 의미를 메소드에 담는다.
+메소드는 파라미터가 없어도 작동 한다.
+
+2. url의 구성하는 각 부분을 설명하시오.
+e.g) http://localhost:8080/hom/WEB-INF/classes/www/silver/hom/HomeController.java
+프로토콜 - http://(웹프로토콜)			휴먼 교육 센터로 가는 방법
+서버의 주소 - localhost:(아이피 또는 도메인)		휴먼 교육 센터가 있는 빌딩 주소
+포트번호 - 8080					교육 센터가 있는 층수
+Context Path - hom(프로젝트 단위 WAS)		교육 센터 내 강의실
+value - hom뒤의 남은 url(스프링에게 요청하는 서비스)	강의를 듣는 행위
+
+3. 스프링에서  @Controller의 의미
+a. 요청을 받아준다. 이 때 파라미터가 있다면 받아준다.
+b. 비즈니스 로직을 수행한다. 비즈니스 로직이란 데이터베이스 작업을 의미한다.
+   즉, 비즈니스 로직이 필요하면 서비스 레이어에 작업을 시킨다.
+c. 응답을 해 준다.
+   동기방식에서는 view를 지정한다.
+   비동기방식에서는 문자열, 또는 숫자, 객체로 전송한다.
+
+4. 스프링에서 RequestMapping의 의미
+value와 메소드를 지정하여 클라이언트의 요청을 처리해주는 어노테이션
+*어노테이션이랑? @로 시작하며 컴파일러에게 특수목적이 있음을 알려준다.
+스프링에서는 어노테이션으로 스프링에서 제공하는 기능을 부여한다.
+
+5. 스프링 컨트롤러에서 return 다음에 오는 문자열의 의미
+해당 문자열과 동일한 이름을 가진 view파일을 렌더링하여 불러온다.
+
+6. Maven Spring 의 디렉토리 구조
+pom.xml - Maven 설정 파일(버전 설정, 라이브러리 관리 등)
+
+
+7. 이미지나 정적컨텐츠의 위치
+<img src="주소">주소가 정적컨텐츠 위치
+webapp 하위 디렉토리인데 대부분 webapp > resources 하위 디렉토리에 보관한다.
+
+8. 스프링에서 한글을 설정하는 방법 3가지
+만약 텍스트 인코딩이 UTF-8일 경우,
+	1) spring IDE 인코딩 설정(preferences 의 css, js 등등의 인코딩을 EUC-KR에서 UTF-8로 변경)
+	2) web.xml 설정
+	해당 파일에,
+	<filter> 
+			<filter-name>encoding-filter</filter-name> 
+			<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class> 
+			<init-param> 
+				<param-name>encoding</param-name> 
+				<param-value>UTF-8</param-value> 
+			</init-param> 
+		</filter> 
+		<filter-mapping> 
+			<filter-name>encoding-filter</filter-name> 
+			<url-pattern>/*</url-pattern> 
+		</filter-mapping>
+		라는 코드를 추가한다. </web-app> 위로 해당 코드를 추가해야 한다. 해당 구문 아래로 추가하면 안된다.
+
+	3) 	한글이 보여지기를 원하는 view 파일 설정
+		한글이 보이길 원하는 파일에 <%@ page language="java" contentType="text/html; charset=UTF-8"
+	    	pageEncoding="UTF-8"%> 를 추가한다.
+
+또는, EUC-KR로도 설정할 수 있다.
+
+9. 컨텍스트패스의 의미
+웹어플리케이션을 구분하기 위한 경로(path)를 의미한다. 
+WAS는 context path와 처리하기 위한 웹어플리케이션을 매핑하는 정보를 가지고 있다.
+tomcat인 경우는 server.xml파일에 설정됨
+WAS는 url안의 path, 위의 url에선 hom 에 해당하는 스프링 프로젝트를 확인하고
+해당 프로젝트의 정적 컨텐츠와 동적 컨텐츠를 판별하고 맞는 프로그램에 넘겨준다. 
+
+10. 클라이언트에서 get 방식으로 request를 발생하는 방법 2가지
+브라우저 주소창에 주소를 입력하여 요청하면 get
+a태그(a href)를 사용하여 리퀘스트를 보낸다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
