@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import www.silver.service.IF_BoardService;
+import www.silver.util.FileDataUtil;
 import www.silver.vo.BoardVO;
 import www.silver.vo.PageVO;
 
@@ -21,18 +23,22 @@ public class BoardController {
 	@Inject
 	IF_BoardService boardservice;
 	
+	@Inject
+	FileDataUtil filedatautil;
+	
 	@GetMapping(value = "board")
 	public String board(Model model, @ModelAttribute PageVO pagevo) throws Exception{
 		//Controller > service > dao > mapper
 		if(pagevo.getPage()==null) {
 			pagevo.setPage(1);
 		}
-		pagevo.setTotalCount(143);
+		// pagevo.setTotalCount(143);
+		pagevo.setTotalCount(boardservice.totalCountBoard());
 		
-		System.out.println(pagevo.getStartNo() +"시작 글번호");
-		System.out.println(pagevo.getEndNo() +"마지막 글번호");
-		System.out.println(pagevo.getStartPage() +"그룹 시작번호");
-		System.out.println(pagevo.getEndPage() +"그룹 끝번호");
+//		System.out.println(pagevo.getStartNo() +"시작 글번호");
+//		System.out.println(pagevo.getEndNo() +"마지막 글번호");
+//		System.out.println(pagevo.getStartPage() +"그룹 시작번호");
+//		System.out.println(pagevo.getEndPage() +"그룹 끝번호");
 		//확인용
 		List<BoardVO> list = boardservice.boardList(pagevo);
 		
@@ -78,12 +84,34 @@ public class BoardController {
 	}
 	
 	@PostMapping(value = "bwrdo")
-	public String bwrdo(@ModelAttribute BoardVO boardvo) throws Exception{
+	public String bwrdo(@ModelAttribute BoardVO boardvo, MultipartFile[] file) throws Exception{
 //		System.out.println(boardvo.toString());
-		boardservice.addBoard(boardvo);
+		//업로드 되는지 확인하는 중간 코드
+//		System.out.println(file.length);
+//		for(int i=0; i<file.length;i++) {
+//			System.out.println(file[i].getOriginalFilename());
+//		}
+		//boardservice.addBoard(boardvo);
 		// 서비스 인터페이스 객체를 주입받은 뒤, 해당 서비스에 vo데이터를 전달
 		// 서비스 인터페이스를 주입받고, 해당 서비스에 VO 데이터를 전달하여 게시글을 추가하는 작업을 수행
 //		return "board/bbs";
+		String[] newFileName = filedatautil.fileUpload(file);
+		boardvo.setFilename(newFileName);
+		boardservice.addBoard(boardvo);
+		System.out.println(newFileName);
+		
 		return "redirect:board";
+	}
+	
+	@GetMapping(value="view")
+	public String boardView(@RequestParam("no") String no, Model model) throws Exception {
+		BoardVO boardvo = boardservice.getBoard(no);
+		// 해당하는 튜플을 가져옴
+		List<String> attachList = boardservice.getAttach(no);
+		// 가져온 튜플에 해당하는 attach를 가져옴
+		model.addAttribute("boardvo", boardvo);
+		model.addAttribute("attachList", attachList);
+		// view에게 전송할 값들. 게시글과 첨부파일 리스트
+		return "board/dview";
 	}
 }

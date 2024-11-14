@@ -431,63 +431,44 @@
       <div>
         <div class="card text-center">
           <div class="card-body">
-            <h5 class="card-title">게시글 수정</h5>
+            <h5 class="card-title">자세히 보기</h5>
           </div>
         </div>
       </div>
 
-      <form class="row g-3" action="mod" method="post">
+      <form class="row g-3" action="bwrdo" method="post" encType="multipart/form-data">
         <div class="col-md-4">
           <label for="inputState" class="form-label">놀이터 선택</label>
-          <select id="inputState" class="form-select" name="type">
-            <option
-            <c:if test="${boardvo.type eq 'Database' }">selected
-            </c:if>>
-            Database</option>
-            
-            <option
-            <c:if test="${boardvo.type eq'Java'}">selected
-            </c:if>>
-            Java</option>
+          ${boardvo.type }
           </select>
         </div>
         <div class="col-md-3">
           <label for="inputCity" class="form-label">작성자</label>
-          <input type="text" class="form-control" id="inputCity" name="username" value="${boardvo.username }">
+          ${boardvo.username }
         </div>
         <div class="col-md-3">
-          <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" class="form-control" id="inputPassword4" name="pass" value="${boardvo.pass }">
+          
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">제목</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="제목을 입력하세요" name="title" value="${boardvo.title }">
+          ${boardvo.title }
         </div>
 
 
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-            style="height: 200px" name="content">${boardvo.pass }</textarea>
-          <label for="floatingTextarea2">Comments</label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="content"
+        style="height: 200px">
+          ${boardvo.content }
+          </textarea>
         </div>
-        <div class="mb-3">
-          <input class="form-control" type="file" id="formFile">
-          <input class="form-control" type="file" id="formFile">
-        </div>
+        <div class="mb-3"></div>
+        <c:forEach items="${attachList }" var="fname">
+        	<a href="download?filename=${fname }"><img src="download?filename=${fname }"></a>
+        </c:forEach>
+          
 
         <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" name="viewmember" value=1
-            <c:if test="${boardvo.viewmember eq '비공개'}">
-            checked</c:if>>
-            <label class="form-check-label" for="gridCheck">
-              회원만 보기
-            </label>
-          </div>
-        </div>
-        <div class="col-12">
-        	<input type="hidden" name="num" value="${boardvo.num }">
-          <button type="submit" class="btn btn-primary">수정하기</button>
+          
         </div>
       </form>
     </div>

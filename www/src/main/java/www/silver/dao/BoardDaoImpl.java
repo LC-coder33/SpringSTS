@@ -47,6 +47,21 @@ public class BoardDaoImpl implements IF_BoardDao{
 	public void updateBoard(BoardVO boardvo) throws Exception {
 		sqlsession.update(mapperQuery+".update",boardvo);
 	}
+
+	@Override
+	public int cntBoard() throws Exception {
+		return sqlsession.selectOne(mapperQuery+".allcnt");
+	}
+
+	@Override
+	public void insertAttach(String fname) throws Exception {
+		sqlsession.insert(mapperQuery+".insertattach",fname);
+	}
+
+	@Override
+	public List<String> selectAllattach(String no) throws Exception {
+		return sqlsession.selectList(mapperQuery+".selectattach", no);
+	}
 	
 	
 }
