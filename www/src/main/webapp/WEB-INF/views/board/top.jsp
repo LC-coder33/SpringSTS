@@ -244,56 +244,6 @@
 </style>
 
 <body>
-	<%@ include file="./board/top.jsp" %>
-
-    <!--      <ul>
-            <li><div class="dropdown">
-                <button id="btn01">Laps</button>
-                <div class="dropdown-options">
-                  <a href="#">Dashboard</a>
-                  <a href="#">Setting</a>
-                  <a href="#">Logout</a>
-                </div>
-              </div>
-            </li>
-            <li><div class="dropdown">
-                <button id="btn02">DataBase</button>
-                <div class="dropdown-options">
-                  <a href="#">Dashboar2d</a>
-                  <a href="#">Setting2</a>
-                  <a href="#">Logou2t</a>
-                </div>
-              </div>
-            </li>
-            <li><div class="dropdown">
-                <button id="btn03">FrontEnd</button>
-                <div class="dropdown-options">
-                  <a href="#">Dashboard</a>
-                  <a href="#">Setting</a>
-                  <a href="#">Logout</a>
-                </div>
-              </div>
-            </li>
-            <li><div class="dropdown">
-                <button id="btn04">BackEnd</button>
-                <div class="dropdown-options">
-                  <a href="#">Dashboard</a>
-                  <a href="#">Setting</a>
-                  <a href="#">Logout</a>
-                </div>
-              </div>
-            </li>
-            <li><div class="dropdown">
-                <button id="btn05">Lecture</button>
-                <div class="dropdown-options">
-                  <a href="#">Dashboard</a>
-                  <a href="#">Setting</a>
-                  <a href="#">Logouts</a>
-                </div>
-              </div>
-            </li>
-        </ul>
-    -->
   </div>
   <div id="mainsection">
     <style>
