@@ -36,7 +36,7 @@
 		<interceptor>
 			<mapping path="/**" />
 			<exclude-mapping path="/" />
-			<exclude-mapping path="/resources**" />
+			<exclude-mapping path="/resources/**" />
 			<exclude-mapping path="/board" />
 			<exclude-mapping path="/login" />
 			<exclude-mapping path="/join" />
