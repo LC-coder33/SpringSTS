@@ -1,7 +1,5 @@
 package www.silver.vo;
 
-import java.util.Arrays;
-
 public class BoardVO {
 	String type;
 	String username;
@@ -16,15 +14,25 @@ public class BoardVO {
 	public String getNum() {
 		return num;
 	}
+
 	public void setNum(String num) {
 		this.num = num;
 	}
+
 	public String[] getFilename() {
 		return filename;
 	}
+
 	public void setFilename(String[] filename) {
 		this.filename = filename;
 	}
+
+	@Override
+	public String toString() {
+		return "BoardVO [type=" + type + ", username=" + username + ", title=" + title + ", content=" + content
+				+ ", pass=" + pass + ", viewmember=" + viewmember + ", indate=" + indate + "]";
+	}
+	
 	public String getType() {
 		return type;
 	}
@@ -67,10 +75,6 @@ public class BoardVO {
 	public void setIndate(String indate) {
 		this.indate = indate;
 	}
-	@Override
-	public String toString() {
-		return "BoardVO [type=" + type + ", username=" + username + ", title=" + title + ", content=" + content
-				+ ", pass=" + pass + ", viewmember=" + viewmember + ", indate=" + indate + ", filename="
-				+ Arrays.toString(filename) + ", num=" + num + "]";
-	}
+	
+	
 }

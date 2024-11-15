@@ -1,14 +1,13 @@
 package www.silver.vo;
 
-public class PageVO {
-
-	private int startNo;	// 페이지의 시작되는 글 번호. 예) 3페이지의 시작 글 번호는 21일 것
-	private int endNo;	// 페이지의 마지막 글 번호.
-	private int perPageNum=10;	// 한 페이지 당 게시글 수
+public class Pagevo {
+	private int startNo;
+	private int endNo;
+	private int perPageNum=10;
 	private Integer page; // Integer 웹에서 받은 페이지 정보(String)가 없으면 null인데 int는 null을 저장할 수 없다. 오류방지
-	private int totalCount;	// 전체 게시글 수
-	private int endPage;	// 1그룹의 10페이지의 엔드 페이지는 10이다. 2그룹은 20
-	private int startPage;	// 1그룹의 10페이지의 스타트 페이지는 1이다. 2그룹은 11
+	private int totalCount;
+	private int endPage;
+	private int startPage;
 	private boolean prev;
 	private boolean next;
 	// 검색용 변수 2개 추가
@@ -139,5 +138,4 @@ public class PageVO {
 	public void setPerPageNum(int perPageNum) {
 		this.perPageNum = perPageNum;
 	}
-	
 }

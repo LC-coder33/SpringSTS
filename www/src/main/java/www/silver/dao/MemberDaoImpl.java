@@ -17,10 +17,15 @@ public class MemberDaoImpl implements IF_MemberDao {
 	@Override
 	public void insertOne(MemberVO membervo) throws Exception {
 		// sqlSessiomTemplate 의 객체의 메서드를  call하면된다.
-		//sqlSession.insert("mapper와 매핑정보", "파라미터값");
+		//sqlSession.insert("mapper와 매핑정보", "마라미터값");
 		System.out.println("dao");
 		sqlSession.insert(mapperQuery+".insertOne",membervo);
 		//   www.silver.dao.IF_MemberDao.insertOne  << 매핑의정보
+	}
+	@Override
+	public MemberVO selectOne(String id) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(mapperQuery+".selectOne", id);
 	}
 
 }

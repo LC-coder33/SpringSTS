@@ -31,12 +31,10 @@ public class FileDataUtil {
 	};     //<-- 현재 코드는 활용하지는 않는다.. 얘는 선언이지 기능이 동작하지는 않는다. 절대 미리 예측 금지..
 	
 	//첨부파일 업로드 경로 변수값으로 가져옴 servlet-context.xml
-	@Resource(name="uploadPath") // resources 는 이름으로 주입받는다
+	@Resource(name="uploadPath")
 	private String uploadPath;
-	// uploadpath 가 의미하는 것은 첨부파일의 위치를 의미하는 것이다.
-	// private String uploadPath="/tmp" 라고 치면 위의 두 코드를 안 써도 된다. 하지만 위의 코드를 쓰는 이유는, 해당 코드를 쓰면
-	// 굳이 java를 건드리지 않아도 되기 때문. 최대한 지금 프로그램으의 컨테이너로 모든 것을 해결할 수 있다.
-	// 개발의 주체가 개발자가 아니라 Spring container이다
+	
+	
 	public String getUploadPath() {
 		return uploadPath;
 	}
@@ -68,7 +66,7 @@ public class FileDataUtil {
 				String originalName = file[i].getOriginalFilename();//확장자가져오기 위해서 전체파일명을 가져옴.
 				UUID uid = UUID.randomUUID();//랜덤문자 구하기 맘에안든다. 
 				String saveName = uid.toString() + "." + originalName.split("\\.")[1];//한글 파일명 처리 때문에...
-				// 
+				//                                            
 //			String[] files = new String[] {saveName}; //형변환  files[0] 파일명이 들어 간다..
 				byte[] fileData = file[i].getBytes();
 				
